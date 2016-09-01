@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
-
 import Slider from 'material-ui/Slider'
+import RiskProfile from './RiskProfile'
+
 import { submitRisk } from '../actions/clientActions'
 
 export default class RiskPage extends Component {
@@ -19,10 +19,15 @@ export default class RiskPage extends Component {
 
   render() {
     return (
-      <div className="risk-page">
-        <h1>RiskPage</h1>
-        <Slider defaultValue={0.5} onChange={this._sliderChanged}/>
-        <button><Link to={"/alloc"} onClick={this._handleSubmit}>Submit</Link></button>
+      <div className='risk-page'>
+        <div className='intro'>
+          <div className='title'>Start by selecting a risk profile</div>
+          <div className='subtitle'>Don't worry, you call always come back and change it</div>
+        </div>
+        <RiskProfile riskVal={this.state.riskVal}/>
+        <div className='inputs'>
+          <Slider defaultValue={0.5} onChange={this._sliderChanged}/>
+        </div>
       </div>
     );
   }

@@ -1,3 +1,35 @@
+.risk-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .risk-page .intro {
+    font-weight: 200px;
+    padding: 40px 0; }
+    .risk-page .intro .title {
+      font-size: 32px; }
+    .risk-page .intro .subtitle {
+      font-size: 14px; }
+  .risk-page .risk-profile {
+    height: 500px;
+    width: 500px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .risk-page .risk-profile .continue {
+      color: white;
+      height: 30px;
+      width: 200px;
+      padding: 10px 0;
+      margin: 20px 0;
+      border-radius: 3px;
+      background-color: #2f97eb; }
+  .risk-page .inputs {
+    width: 500px;
+    margin-top: 20px; }
 
+svg {
+  padding: 0 50px; }
 
 /*# sourceMappingURL=RiskPage.css.map */
