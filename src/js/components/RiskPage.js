@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Link } from 'react-router'
 
 import Slider from 'material-ui/Slider'
+import { submitRisk } from '../actions/clientActions'
 
 export default class RiskPage extends Component {
   state = {
-    sliderVal: 0
+    riskVal: 5
   }
 
   _sliderChanged = (e, value) => {
-    this.setState({sliderVal: Math.floor(value * 100)})
+    this.setState({riskVal: Math.floor(value * 10)})
+  }
+
+  _handleSubmit = (e) => {
+    submitRisk(this.state.riskVal)
   }
 
   render() {
@@ -17,7 +22,7 @@ export default class RiskPage extends Component {
       <div className="risk-page">
         <h1>RiskPage</h1>
         <Slider defaultValue={0.5} onChange={this._sliderChanged}/>
-        <button><Link to={'/alloc'}>Continue</Link></button>
+        <button><Link to={"/alloc"} onClick={this._handleSubmit}>Submit</Link></button>
       </div>
     );
   }
