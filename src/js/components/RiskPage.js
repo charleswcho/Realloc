@@ -16,7 +16,7 @@ export default class RiskPage extends Component {
       <div className='risk-page'>
         <div className='intro'>
           <h1>Start by selecting a risk profile</h1>
-          <h4 className='subtitle'>Don't worry, you call always come back and change it</h4>
+          <h4>Don't worry, you call always come back and change it</h4>
         </div>
         <RiskProfile riskVal={this.state.riskVal}/>
         <div className='inputs'>

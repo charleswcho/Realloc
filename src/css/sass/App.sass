@@ -9,6 +9,10 @@ $desktop-width: 1024px
   @media (min-width: $desktop-width)
     @content
 
+=size($height, $width)
+  height: $height
+  width: $width
+
 .App
   text-align: center
   font-family: MuseoSans,Lato,"Helvetica Neue",Helvetica,Arial,sans-serif
@@ -25,7 +29,6 @@ h1
   +desktop
     font-size: 40px
 
-
 h4
   font-weight: 300
 
@@ -36,6 +39,7 @@ a
 ul
   margin: 0
   padding: 0
+  list-style-type: none
 
 .intro
   padding: 10px 0
@@ -43,6 +47,14 @@ ul
     padding: 20px 0
   +desktop
     padding: 40px 0
+
+.chart
+  height: 250px
+  width: 250px
+  +tablet
+    +size(350px, 350px)
+  +desktop
+    +size(450px, 450px)
 
 // Navbar
 
@@ -54,9 +66,15 @@ ul
     height: 65px
     padding: 0 40px
     span
-      padding: 14px 0
+      padding: 18px 0
       float: left
-      font-size: 32px
+      font-size: 24px
+      +tablet
+        padding: 14px 0
+        font-size: 32px
+      +desktop
+        padding: 14px 0
+        font-size: 32px
 
 
 // Buttons

@@ -1,0 +1,46 @@
+$tablet-width: 600px
+$desktop-width: 1024px
+
+=tablet
+  @media (min-width: $tablet-width) and (max-width: $desktop-width)
+    @content
+
+=desktop
+  @media (min-width: $desktop-width)
+    @content
+
+=size($height, $width)
+  height: $height
+  width: $width
+
+=flex($direction)
+  display: flex
+  flex-direction: $direction
+  align-items: center
+  justify-content: center
+
+// Sass
+
+.adjust-page
+  height: calc(100vh - 66px)
+  width: 90%
+  padding: 0 5%
+  +flex(row)
+  flex-wrap: wrap
+  .intro
+
+  .diffs
+    height: 100px
+    // width: 200px
+    padding: 20px 0
+    +tablet
+      +size(350px, 175px)
+    +desktop
+      +size(450px, 225px)
+    li
+      +flex(row)
+      justify-content: space-between
+      .negative
+        color: red
+      .positive
+        color: green

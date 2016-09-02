@@ -20,22 +20,15 @@ $desktop-width: 1024px
   justify-content: center
 
 .alloc-page
-  height: 100vh
+  height: calc(100vh - 66px)
   width: 90%
   padding: 0 5%
 
   .display
-    padding: 0 20px
+    padding: 0 20px 20px 20px
     +flex(row)
     flex-wrap: wrap
 
-    .chart
-      height: 250px
-      width: 250px
-      +tablet
-        +size(350px, 350px)
-      +desktop
-        +size(450px, 450px)
     .inputs
       +flex(column)
       +tablet
@@ -45,5 +38,5 @@ $desktop-width: 1024px
 
   .buttons
     height: 40px
-    margin-top: 20px
+    padding-bottom: 30px
     +flex(row)

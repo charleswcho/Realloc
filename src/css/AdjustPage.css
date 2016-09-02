@@ -1,3 +1,32 @@
-
+.adjust-page {
+  height: calc(100vh - 66px);
+  width: 90%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; }
+  .adjust-page .diffs {
+    height: 100px;
+    padding: 20px 0; }
+    @media (min-width: 600px) and (max-width: 1024px) {
+      .adjust-page .diffs {
+        height: 350px;
+        width: 175px; } }
+    @media (min-width: 1024px) {
+      .adjust-page .diffs {
+        height: 450px;
+        width: 225px; } }
+    .adjust-page .diffs li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      justify-content: space-between; }
+      .adjust-page .diffs li .negative {
+        color: red; }
+      .adjust-page .diffs li .positive {
+        color: green; }
 
 /*# sourceMappingURL=AdjustPage.css.map */

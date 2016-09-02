@@ -25,7 +25,8 @@ a {
 
 ul {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  list-style-type: none; }
 
 .intro {
   padding: 10px 0; }
@@ -36,6 +37,18 @@ ul {
     .intro {
       padding: 40px 0; } }
 
+.chart {
+  height: 250px;
+  width: 250px; }
+  @media (min-width: 600px) and (max-width: 1024px) {
+    .chart {
+      height: 350px;
+      width: 350px; } }
+  @media (min-width: 1024px) {
+    .chart {
+      height: 450px;
+      width: 450px; } }
+
 .navbar {
   color: #17406B;
   height: 65px;
@@ -44,9 +57,17 @@ ul {
     height: 65px;
     padding: 0 40px; }
     .navbar .container span {
-      padding: 14px 0;
+      padding: 18px 0;
       float: left;
-      font-size: 32px; }
+      font-size: 24px; }
+      @media (min-width: 600px) and (max-width: 1024px) {
+        .navbar .container span {
+          padding: 14px 0;
+          font-size: 32px; } }
+      @media (min-width: 1024px) {
+        .navbar .container span {
+          padding: 14px 0;
+          font-size: 32px; } }
 
 .button, .continue, .back {
   width: 150px;

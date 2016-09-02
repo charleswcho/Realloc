@@ -1,25 +1,14 @@
 .alloc-page {
-  height: 100vh;
+  height: calc(100vh - 66px);
   width: 90%;
   padding: 0 5%; }
   .alloc-page .display {
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap; }
-    .alloc-page .display .chart {
-      height: 250px;
-      width: 250px; }
-      @media (min-width: 600px) and (max-width: 1024px) {
-        .alloc-page .display .chart {
-          height: 350px;
-          width: 350px; } }
-      @media (min-width: 1024px) {
-        .alloc-page .display .chart {
-          height: 450px;
-          width: 450px; } }
     .alloc-page .display .inputs {
       display: flex;
       flex-direction: column;
@@ -33,7 +22,7 @@
           padding: 0 40px; } }
   .alloc-page .buttons {
     height: 40px;
-    margin-top: 20px;
+    padding-bottom: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -5,8 +5,9 @@ import { EventEmitter } from 'events'
 
 const CHANGE_EVENT = 'change';
 
-let _desiredPortfolio,
-    _actualPortfolio;
+let _desiredPortfolio = [],
+    _actualPortfolio = [],
+    _actualSum = 0;
 
 class ResultStore extends EventEmitter {
   addChangeListener(cb) {
@@ -24,6 +25,18 @@ class ResultStore extends EventEmitter {
   actualPortfolio() {
     return _actualPortfolio;
   }
+
+  actualSum() {
+    return _actualSum;
+  }
+}
+
+function sumActual() {
+  if (_actualSum === 0) { // Only sum if not calculated before
+    _actualPortfolio.forEach((asset) => {
+      _actualSum += asset.y
+    })
+  }
 }
 
 const resultStore = new ResultStore();
@@ -36,6 +49,7 @@ AppDispatcher.register((action) => {
       break;
     case ACTIONS.SUBMIT_ACTUAL:
       _actualPortfolio = action.portfolio
+      sumActual()
       resultStore.emit(CHANGE_EVENT);
       break;
     default:

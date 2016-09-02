@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 // Page components
 import RiskPage from './js/components/RiskPage'
@@ -12,12 +12,12 @@ import AdjustPage from './js/components/AdjustPage'
 import Navbar from './js/components/Navbar'
 
 // CSS
-import './css/App.css';
-import './css/RiskPage.css';
-import './css/AllocPage.css';
-import './css/AdjustPage.css';
+import './css/App.css'
+import './css/RiskPage.css'
+import './css/AllocPage.css'
+import './css/AdjustPage.css'
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin();
 
 class App extends Component {

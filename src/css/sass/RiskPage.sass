@@ -13,13 +13,14 @@ $desktop-width: 1024px
   display: flex
   flex-direction: column
   align-items: center
+  justify-content: center
 
 =size($height, $width)
   height: $height
   width: $width
 
 .risk-page
-  height: 100% - 65
+  height: calc(100vh - 66px)
   width: 90%
   padding: 0 5%
   +flex
@@ -37,7 +38,7 @@ $desktop-width: 1024px
 
   .inputs
     width: 300px
-    padding: 40px 0
+    margin-top: 40px
 
     +tablet
       width: 450px
