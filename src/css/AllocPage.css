@@ -1,7 +1,8 @@
 .alloc-page {
-  height: 100vh; }
+  height: 100vh;
+  width: 90%;
+  padding: 0 5%; }
   .alloc-page .display {
-    height: 400px;
     padding: 0 20px;
     display: flex;
     flex-direction: row;
@@ -9,14 +10,27 @@
     justify-content: center;
     flex-wrap: wrap; }
     .alloc-page .display .chart {
-      height: 400px;
-      width: 400px; }
+      height: 250px;
+      width: 250px; }
+      @media (min-width: 600px) and (max-width: 1024px) {
+        .alloc-page .display .chart {
+          height: 350px;
+          width: 350px; } }
+      @media (min-width: 1024px) {
+        .alloc-page .display .chart {
+          height: 450px;
+          width: 450px; } }
     .alloc-page .display .inputs {
-      width: 33%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center; }
+      @media (min-width: 600px) and (max-width: 1024px) {
+        .alloc-page .display .inputs {
+          padding: 0 20px; } }
+      @media (min-width: 1024px) {
+        .alloc-page .display .inputs {
+          padding: 0 40px; } }
   .alloc-page .buttons {
     height: 40px;
     margin-top: 20px;

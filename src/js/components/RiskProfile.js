@@ -2,33 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 
 import DonutChart from './DonutChart'
+import Paper from 'material-ui/Paper'
 
-const PROFILES = {
-  Conservative: [
-    {x: "Developed Markets", y: 15},
-    {x: "Emerging Markets", y: 3},
-    {x: "Municipal Bonds", y: 32},
-    {x: "US Total Stock Market", y: 8},
-    {x: "US Large-Cap Value", y: 8}
-  ],
-
-  Moderate: [
-    {x: "Developed Markets", y: 20},
-    {x: "Emerging Markets", y: 5},
-    {x: "Municipal Bonds", y: 10},
-    {x: "US Total Stock Market", y: 8},
-    {x: "US Large-Cap Value", y: 8}
-  ],
-
-  Aggressive: [
-    {x: "Developed Markets", y: 37},
-    {x: "Emerging Markets", y: 11},
-    {x: "Municipal Bonds", y: 5},
-    {x: "US Total Stock Market", y: 15},
-    {x: "US Large-Cap Value", y: 15}
-  ]
-}
-
+import { PROFILES } from '../constants/profileConstants'
 
 export default class RiskPage extends Component {
   switchProfile() {
@@ -48,12 +24,12 @@ export default class RiskPage extends Component {
   render() {
     let profile = this.switchProfile()
     return (
-      <div className="risk-profile">
-        <h1 className='label'>{profile}</h1>
+      <Paper className='risk-profile' zDepth={3}>
+        <h1>{profile}</h1>
         <DonutChart data={PROFILES[profile]}/>
         <Link className='continue' to={"/alloc"} onClick={this._handleSubmit}>
           Continue</Link>
-      </div>
+      </Paper>
     );
   }
 }

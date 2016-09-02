@@ -9,6 +9,8 @@ import RiskPage from './js/components/RiskPage'
 import AllocPage from './js/components/AllocPage'
 import AdjustPage from './js/components/AdjustPage'
 
+import Navbar from './js/components/Navbar'
+
 // CSS
 import './css/App.css';
 import './css/RiskPage.css';
@@ -23,6 +25,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div className="App">
+          <Navbar/>
           {this.props.children}
         </div>
       </MuiThemeProvider>

@@ -1,27 +1,45 @@
+$tablet-width: 600px
+$desktop-width: 1024px
+
+=tablet
+  @media (min-width: $tablet-width) and (max-width: $desktop-width)
+    @content
+
+=desktop
+  @media (min-width: $desktop-width)
+    @content
+
 =flex()
   display: flex
   flex-direction: column
   align-items: center
 
+=size($height, $width)
+  height: $height
+  width: $width
 
 .risk-page
+  height: 100% - 65
+  width: 90%
+  padding: 0 5%
   +flex
-  .intro
-    font-weight: 200px
-    padding: 40px 0
-    .title
-      font-size: 32px
-    .subtitle
-      font-size: 14px
 
   .risk-profile
-    height: 500px
-    width: 500px
-    padding-bottom: 40px
-    border: 1px solid #ddd
+    height: 300px
+    width: 300px
+    padding-bottom: 15px
     border-radius: 5px
     +flex
+    +tablet
+      +size(450px, 450px)
+    +desktop
+      +size(550px, 550px)
 
   .inputs
-    width: 500px
-    margin-top: 20px
+    width: 300px
+    padding: 40px 0
+
+    +tablet
+      width: 450px
+    +desktop
+      width: 550px

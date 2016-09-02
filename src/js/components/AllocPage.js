@@ -65,7 +65,8 @@ export default class AllocPage extends Component {
   render() {
     return (
       <div className="alloc-page">
-        <h1>Enter your current Allocation of assets</h1>
+        <div className='intro'>
+          <h1>Enter your current Allocation of assets</h1></div>
         <div className='display'>
           <div className='chart'><DonutChart data={this.calcData()}/></div>
           <ul className='inputs'>

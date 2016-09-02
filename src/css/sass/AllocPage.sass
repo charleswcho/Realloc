@@ -1,26 +1,49 @@
-=flex($direction, $align, $justify)
+$tablet-width: 600px
+$desktop-width: 1024px
+
+=tablet
+  @media (min-width: $tablet-width) and (max-width: $desktop-width)
+    @content
+
+=desktop
+  @media (min-width: $desktop-width)
+    @content
+
+=size($height, $width)
+  height: $height
+  width: $width
+
+=flex($direction)
   display: flex
   flex-direction: $direction
-  align-items: $align
-  justify-content: $justify
+  align-items: center
+  justify-content: center
 
 .alloc-page
   height: 100vh
+  width: 90%
+  padding: 0 5%
 
   .display
-    height: 400px
     padding: 0 20px
-    +flex(row, center, center)
+    +flex(row)
     flex-wrap: wrap
 
     .chart
-      height: 400px
-      width: 400px
-
+      height: 250px
+      width: 250px
+      +tablet
+        +size(350px, 350px)
+      +desktop
+        +size(450px, 450px)
     .inputs
-      width: 33%
-      +flex(column, center, center)
+      +flex(column)
+      +tablet
+        padding: 0 20px
+      +desktop
+        padding: 0 40px
+
   .buttons
     height: 40px
     margin-top: 20px
-    +flex(row, center, center)
+    +flex(row)

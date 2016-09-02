@@ -6,9 +6,8 @@ export default class DonutChart extends Component {
     return (
       <VictoryPie style={{
           labels: {
-            fill: "blue",
-            fontSize: 12,
-            fontWeight: "bold"
+            fill: 'black',
+            fontSize: 12
           }
       }}
       data={this.props.data}

@@ -6,7 +6,17 @@ body {
   margin: 0; }
 
 h1 {
+  font-size: 24px;
   margin-bottom: 0;
+  font-weight: 300; }
+  @media (min-width: 600px) and (max-width: 1024px) {
+    h1 {
+      font-size: 32px; } }
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 40px; } }
+
+h4 {
   font-weight: 300; }
 
 a {
@@ -14,23 +24,55 @@ a {
   padding-top: 0; }
 
 ul {
-  margin: 0; }
+  margin: 0;
+  padding: 0; }
+
+.intro {
+  padding: 10px 0; }
+  @media (min-width: 600px) and (max-width: 1024px) {
+    .intro {
+      padding: 20px 0; } }
+  @media (min-width: 1024px) {
+    .intro {
+      padding: 40px 0; } }
+
+.navbar {
+  color: #17406B;
+  height: 65px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px; }
+  .navbar .container {
+    height: 65px;
+    padding: 0 40px; }
+    .navbar .container span {
+      padding: 14px 0;
+      float: left;
+      font-size: 32px; }
+
+.button, .continue, .back {
+  width: 150px;
+  padding: 8px 0;
+  margin: 0 5px;
+  font-size: 12px;
+  border-radius: 3px; }
+  @media (min-width: 600px) and (max-width: 1024px) {
+    .button, .continue, .back {
+      width: 200px;
+      padding: 11px 0;
+      font-size: 16px; } }
+  @media (min-width: 1024px) {
+    .button, .continue, .back {
+      width: 200px;
+      padding: 11px 0;
+      font-size: 16px; } }
 
 .continue {
   color: white;
-  width: 200px;
-  padding: 11px 0;
   margin: 0 5px;
-  border-radius: 3px;
   background-color: #2f97eb; }
 
 .back {
   color: #2f97eb;
-  width: 200px;
-  padding: 10px 0;
-  margin: 0 5px;
   border: 1px solid #2f97eb;
-  border-radius: 3px;
   background-color: white; }
   .back:hover {
     color: white;
