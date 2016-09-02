@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+// Components 
 import Slider from 'material-ui/Slider'
 import RiskProfile from './RiskProfile'
 
@@ -18,7 +20,9 @@ export default class RiskPage extends Component {
           <h1>Start by selecting a risk profile</h1>
           <h4>Don't worry, you call always come back and change it</h4>
         </div>
+
         <RiskProfile riskVal={this.state.riskVal}/>
+
         <div className='inputs'>
           <Slider defaultValue={0.5} onChange={this._sliderChanged}/>
         </div>

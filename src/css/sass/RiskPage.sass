@@ -15,9 +15,9 @@ $desktop-width: 1024px
   align-items: center
   justify-content: center
 
-=size($height, $width)
-  height: $height
-  width: $width
+=size($size)
+  height: $size
+  width: $size
 
 .risk-page
   height: calc(100vh - 66px)
@@ -32,9 +32,9 @@ $desktop-width: 1024px
     border-radius: 5px
     +flex
     +tablet
-      +size(450px, 450px)
+      +size(450px)
     +desktop
-      +size(550px, 550px)
+      +size(550px)
 
   .inputs
     width: 300px

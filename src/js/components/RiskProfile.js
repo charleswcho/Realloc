@@ -33,9 +33,10 @@ export default class RiskPage extends Component {
     return (
       <Paper className='risk-profile' zDepth={3}>
         <h1>{profile}</h1>
+
         <DonutChart data={PROFILES[profile]}/>
-        <Link className='continue' to={"/alloc"}>
-          Continue</Link>
+
+        <Link className='continue' to={"/alloc"}>Continue</Link>
       </Paper>
     );
   }

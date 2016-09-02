@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import AssetInput from './AssetInput'
-import DonutChart from './DonutChart'
-
 import { Link } from 'react-router'
 
+// Components
+import AssetInput from './AssetInput'
+import DonutChart from './DonutChart'
+import InputList from './InputList'
+
+// Actions
 import { submitActual } from '../actions/clientActions'
 
+// Constants
 const ASSETS = [
   "Developed Markets",
   "Emerging Markets",
@@ -40,7 +44,6 @@ export default class AllocPage extends Component {
   }
 
   _inputChanged = (e) => {
-    console.log(typeof e.target.value)
     const val = parseInt(e.target.value, 10)
 
     switch (e.target.name) {
@@ -73,14 +76,17 @@ export default class AllocPage extends Component {
       <div className="alloc-page">
         <div className='intro'>
           <h1>Enter your current Allocation of assets</h1></div>
+
         <div className='display'>
           <div className='chart'><DonutChart data={this.calcData()}/></div>
           <ul className='inputs'>
             {ASSETS.map((asset, idx) => {
-              return <AssetInput key={idx} name={asset} inputChanged={this._inputChanged}/>
+              return <AssetInput key={idx} name={asset}
+                                 inputChanged={this._inputChanged}/>
             })}
           </ul>
         </div>
+
         <div className='buttons'>
           <Link className='back' to={"/"}>Back</Link>
           <Link className='continue' to={"/adjust"} onClick={this._handleSubmit}>
