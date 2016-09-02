@@ -1,10 +1,12 @@
 import AppDispatcher from '../dispatcher/dispatcher'
 import { ACTIONS } from '../constants/actionConstants'
+import { PROFILES } from '../constants/profileConstants'
 import { EventEmitter } from 'events'
 
 const CHANGE_EVENT = 'change';
 
-let _riskLevel;
+let _desiredPortfolio,
+    _actualPortfolio;
 
 class ResultStore extends EventEmitter {
   addChangeListener(cb) {
@@ -15,25 +17,25 @@ class ResultStore extends EventEmitter {
     this.removeListener(CHANGE_EVENT, cb);
   }
 
-  riskLevel() {
-    return _riskLevel;
+  desiredPortfolio() {
+    return PROFILES[_desiredPortfolio];
   }
 
-  // all() {
-  //   return _results.slice(0, 9);
-  // }
-}
-
-function _resetRisk (riskLevel) {
-  _riskLevel = riskLevel;
+  actualPortfolio() {
+    return _actualPortfolio;
+  }
 }
 
 const resultStore = new ResultStore();
 
 AppDispatcher.register((action) => {
   switch(action.actionType) {
-    case ACTIONS.SUBMIT_RISK:
-      _resetRisk(action.riskLevel)
+    case ACTIONS.SUBMIT_DESIRED:
+      _desiredPortfolio = action.portfolio
+      resultStore.emit(CHANGE_EVENT);
+      break;
+    case ACTIONS.SUBMIT_ACTUAL:
+      _actualPortfolio = action.portfolio
       resultStore.emit(CHANGE_EVENT);
       break;
     default:

@@ -4,6 +4,8 @@ import DonutChart from './DonutChart'
 
 import { Link } from 'react-router'
 
+import { submitActual } from '../actions/clientActions'
+
 const ASSETS = [
   "Developed Markets",
   "Emerging Markets",
@@ -62,6 +64,10 @@ export default class AllocPage extends Component {
     }
   }
 
+  _handleSubmit = (e) => {
+    submitActual(this.calcData())
+  }
+
   render() {
     return (
       <div className="alloc-page">
@@ -77,7 +83,8 @@ export default class AllocPage extends Component {
         </div>
         <div className='buttons'>
           <Link className='back' to={"/"}>Back</Link>
-          <Link className='continue' to={"/adjust"}>Continue</Link>
+          <Link className='continue' to={"/adjust"} onClick={this._handleSubmit}>
+            Continue</Link>
         </div>
       </div>
     );

@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import ResultStore from '../stores/resultStore'
 
+import DonutChart from './DonutChart'
+
 export default class AdjustPage extends Component {
   state = {
-    riskLevel: ResultStore.riskLevel()
+    desiredPortfolio: ResultStore.desiredPortfolio(),
+    actualPortfolio: ResultStore.actualPortfolio()
   }
 
   componentDidMount() {
@@ -16,7 +19,8 @@ export default class AdjustPage extends Component {
 
   _resultsChanged = () => {
     this.setState({
-      riskLevel: ResultStore.riskLevel()
+      desiredPortfolio: ResultStore.desiredPortfolio(),
+      actualPortfolio: ResultStore.actualPortfolio()
     })
   }
 
@@ -24,7 +28,11 @@ export default class AdjustPage extends Component {
     return (
       <div className="adjust-page">
         <h1>AdjustPage</h1>
-        <h2>{this.state.riskLevel}</h2>
+        <DonutChart data={    this.state.desiredPortfolio
+}/>
+        <DonutChart data={    this.state.actualPortfolio
+}/>
+
       </div>
     );
   }

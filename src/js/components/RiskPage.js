@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Slider from 'material-ui/Slider'
 import RiskProfile from './RiskProfile'
 
-import { submitRisk } from '../actions/clientActions'
-
 export default class RiskPage extends Component {
   state = {
     riskVal: 5
@@ -11,10 +9,6 @@ export default class RiskPage extends Component {
 
   _sliderChanged = (e, value) => {
     this.setState({riskVal: Math.floor(value * 10)})
-  }
-
-  _handleSubmit = (e) => {
-    submitRisk(this.state.riskVal)
   }
 
   render() {
