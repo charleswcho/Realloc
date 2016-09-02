@@ -1,0 +1,26 @@
+=flex($direction, $align, $justify)
+  display: flex
+  flex-direction: $direction
+  align-items: $align
+  justify-content: $justify
+
+.alloc-page
+  height: 100vh
+
+  .display
+    height: 400px
+    padding: 0 20px
+    +flex(row, center, center)
+    flex-wrap: wrap
+
+    .chart
+      height: 400px
+      width: 400px
+
+    .inputs
+      width: 33%
+      +flex(column, center, center)
+  .buttons
+    height: 40px
+    margin-top: 20px
+    +flex(row, center, center)

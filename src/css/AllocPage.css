@@ -1,3 +1,28 @@
-
+.alloc-page {
+  height: 100vh; }
+  .alloc-page .display {
+    height: 400px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .alloc-page .display .chart {
+      height: 400px;
+      width: 400px; }
+    .alloc-page .display .inputs {
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+  .alloc-page .buttons {
+    height: 40px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
 
 /*# sourceMappingURL=AllocPage.css.map */
