@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
-import ResultStore from '../stores/resultStore'
+import { Link } from 'react-router'
 
+// Components
 import DonutChart from './DonutChart'
+import Paper from 'material-ui/Paper'
+
+// Stores
+import ResultStore from '../stores/resultStore'
 
 export default class AdjustPage extends Component {
   state = {
@@ -56,7 +61,7 @@ export default class AdjustPage extends Component {
   formatAssetVal(asset, val) {
     return (
       <span className={(val[0] < 0) ? 'negative' : 'positive'}>
-         {val[1] + '% ($ ' + val[0] + ')'}
+         {val[1].toFixed(2) + '% | $ ' + val[0].toFixed(2)}
       </span>
     )
   }
@@ -75,13 +80,16 @@ export default class AdjustPage extends Component {
         <div className='intro'>
           <h1>See what you need to change to achieve your goal</h1></div>
 
-        <div className='chart'>Actual
-          <DonutChart data={this.state.actualPortfolio}/></div>
+          <Paper className='chart' zDepth={3}>Current Portfolio
+            <DonutChart data={this.state.actualPortfolio}/></Paper>
 
         {this.renderDiff()}
 
-        <div className='chart'>Desired
-          <DonutChart data={this.state.desiredPortfolio}/></div>
+        <Paper className='chart' zDepth={3}>Target Portfolio
+          <DonutChart data={this.state.desiredPortfolio}/></Paper>
+
+      <div className='buttons'>
+        <Link className='back' to={"/alloc"}>Back</Link></div>
       </div>
     );
   }

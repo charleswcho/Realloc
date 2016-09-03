@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-// Components 
+// Components
 import Slider from 'material-ui/Slider'
 import RiskProfile from './RiskProfile'
 

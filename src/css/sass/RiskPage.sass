@@ -9,18 +9,18 @@ $desktop-width: 1024px
   @media (min-width: $desktop-width)
     @content
 
+=size($size)
+  height: $size
+  width: $size
+
 =flex()
   display: flex
   flex-direction: column
   align-items: center
   justify-content: center
 
-=size($size)
-  height: $size
-  width: $size
-
 .risk-page
-  height: calc(100vh - 66px)
+  height: calc(100% - 66px)
   width: 90%
   padding: 0 5%
   +flex

@@ -1,5 +1,5 @@
 .alloc-page {
-  height: calc(100vh - 66px);
+  height: calc(100% - 66px);
   width: 90%;
   padding: 0 5%; }
   .alloc-page .display {

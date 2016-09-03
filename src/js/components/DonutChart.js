@@ -19,8 +19,8 @@ const STYLES = {
 const ANIMATE = {
   duration: 1000,
   onEnter: {
-    duration: 500,
-    before: () =>
+    duration: 250,
+    before: (datum) =>
       ({y: 0, label: " "}),
     after: (datum) =>
       ({y: datum.y})

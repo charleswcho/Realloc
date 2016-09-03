@@ -1,6 +1,3 @@
-Below you will find some information on how to perform common tasks.  
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/template/README.md).
-
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)

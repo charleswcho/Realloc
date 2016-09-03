@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 // Page components
 import RiskPage from './js/components/RiskPage'
@@ -20,10 +21,16 @@ import './css/AdjustPage.css'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin();
 
+const muiTheme = getMuiTheme({
+  slider: {
+    selectionColor: '#2f97eb'
+  },
+});
+
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={muiTheme}>
         <div className="App">
           <Navbar/>
           {this.props.children}

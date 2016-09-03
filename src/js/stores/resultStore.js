@@ -32,6 +32,9 @@ class ResultStore extends EventEmitter {
 }
 
 function sumActual() {
+  console.log(_actualSum)
+  console.log(_actualPortfolio)
+
   if (_actualSum === 0) { // Only sum if not calculated before
     _actualPortfolio.forEach((asset) => {
       _actualSum += asset.y
