@@ -14,3 +14,9 @@ export function submitActual(portfolio) {
     portfolio: portfolio
   });
 }
+
+export function clearData() {
+  AppDispatcher.dispatch({
+    actionType: ACTIONS.CLEAR_DATA
+  });
+}

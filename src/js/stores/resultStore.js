@@ -32,9 +32,6 @@ class ResultStore extends EventEmitter {
 }
 
 function sumActual() {
-  console.log(_actualSum)
-  console.log(_actualPortfolio)
-
   if (_actualSum === 0) { // Only sum if not calculated before
     _actualPortfolio.forEach((asset) => {
       _actualSum += asset.y
@@ -53,6 +50,12 @@ AppDispatcher.register((action) => {
     case ACTIONS.SUBMIT_ACTUAL:
       _actualPortfolio = action.portfolio
       sumActual()
+      resultStore.emit(CHANGE_EVENT);
+      break;
+    case ACTIONS.CLEAR_DATA:
+      _desiredPortfolio = []
+      _actualPortfolio = []
+      _actualSum = 0
       resultStore.emit(CHANGE_EVENT);
       break;
     default:

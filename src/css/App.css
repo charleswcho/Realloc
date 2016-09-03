@@ -57,16 +57,16 @@ ul {
   .navbar .container {
     height: 65px;
     padding: 0 40px; }
-    .navbar .container span {
+    .navbar .container .logo {
       padding: 18px 0;
       float: left;
       font-size: 24px; }
       @media (min-width: 600px) and (max-width: 1024px) {
-        .navbar .container span {
+        .navbar .container .logo {
           padding: 14px 0;
           font-size: 32px; } }
       @media (min-width: 1024px) {
-        .navbar .container span {
+        .navbar .container .logo {
           padding: 14px 0;
           font-size: 32px; } }
 

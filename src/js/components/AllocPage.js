@@ -29,10 +29,13 @@ export default class AllocPage extends Component {
 
   _inputChanged = (e) => {
     const val = parseInt(e.target.value, 10)
+
+    // Dynamically set state with computed property
     this.setState({ [e.target.name]: val })
   }
 
   _handleSubmit = (e) => {
+
     submitActual(this.calcData())
   }
 

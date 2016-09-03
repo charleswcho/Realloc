@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
 
 // Components
 import DonutChart from './DonutChart'
@@ -28,6 +27,8 @@ export default class AdjustPage extends Component {
         desiredPort = this.state.desiredPortfolio,
         actualPort = this.state.actualPortfolio,
         actualSum = this.state.actualSum
+
+    console.log('actual port', actualPort, 'desiredPort', desiredPort)
 
     desiredPort.forEach((asset, idx) => {
       // Calculate the target value and find the difference and percent difference with the actual value of the user's asset
@@ -80,16 +81,13 @@ export default class AdjustPage extends Component {
         <div className='intro'>
           <h1>See what you need to change to achieve your goal</h1></div>
 
-          <Paper className='chart' zDepth={3}>Current Portfolio
-            <DonutChart data={this.state.actualPortfolio}/></Paper>
+        <Paper className='chart' zDepth={3}>Current Portfolio
+          <DonutChart data={this.state.actualPortfolio}/></Paper>
 
         {this.renderDiff()}
 
         <Paper className='chart' zDepth={3}>Target Portfolio
           <DonutChart data={this.state.desiredPortfolio}/></Paper>
-
-      <div className='buttons'>
-        <Link className='back' to={"/alloc"}>Back</Link></div>
       </div>
     );
   }
