@@ -1,8 +1,8 @@
 [Live site](https://realloc.herokuapp.com/#/?_k=2yjq9c)
 
-## Available Scripts
+## Setting up
 
-In the project directory, you can run:
+Clone or download to get started.  In the project directory, you can run:
 
 ### `npm start`
 
