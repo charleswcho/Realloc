@@ -69,6 +69,8 @@ ul {
         .navbar .container .logo {
           padding: 14px 0;
           font-size: 32px; } }
+      .navbar .container .logo:visited {
+        color: #17406B; }
 
 .button, .continue, .back {
   width: 150px;
