@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-
 // Components
 import DonutChart from './DonutChart'
 import Paper from 'material-ui/Paper'
-
 // Stores
 import ResultStore from '../stores/resultStore'
 

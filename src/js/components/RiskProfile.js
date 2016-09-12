@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+
 // Components
 import DonutChart from './DonutChart'
 import Paper from 'material-ui/Paper'
-// Constants
-import { PROFILES } from '../constants/profileConstants'
 // Actions
 import { submitDesired } from '../actions/clientActions'
+// Constants
+import { PROFILES, PORTFOLIOS} from '../constants/profileConstants'
 
-const PORTFOLIOS = ['Conservative', 'Moderate', 'Aggressive']
 
 export default class RiskPage extends Component {
   switchProfile() {

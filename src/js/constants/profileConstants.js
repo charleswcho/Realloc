@@ -23,3 +23,5 @@ export const PROFILES = {
     {x: "US Large-Cap Value", y: 19}
   ]
 }
+
+export const PORTFOLIOS = ['Conservative', 'Moderate', 'Aggressive']

@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-
 // Components
 import AssetInput from './AssetInput'
 import DonutChart from './DonutChart'
 import Paper from 'material-ui/Paper'
-
 // Actions
 import { submitActual } from '../actions/clientActions'
 
@@ -34,11 +32,6 @@ export default class AllocPage extends Component {
     this.setState({ [e.target.name]: val })
   }
 
-  _handleSubmit = (e) => {
-
-    submitActual(this.calcData())
-  }
-
   render() {
     return (
       <div className="alloc-page">
@@ -59,8 +52,8 @@ export default class AllocPage extends Component {
 
         <div className='buttons'>
           <Link className='back' to={"/"}>Back</Link>
-          <Link className='continue' to={"/adjust"} onClick={this._handleSubmit}>
-            Continue</Link>
+          <Link className='continue' to={"/adjust"}
+                onClick={e => submitActual(this.calcData())}>Continue</Link>
         </div>
       </div>
     );
