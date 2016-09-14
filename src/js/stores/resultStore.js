@@ -7,7 +7,8 @@ const CHANGE_EVENT = 'change';
 
 let _desiredPortfolio = [],
     _actualPortfolio = [],
-    _actualSum = 0;
+    _actualSum = 0,
+    _diff = {};
 
 class ResultStore extends EventEmitter {
   addChangeListener(cb) {
@@ -29,6 +30,10 @@ class ResultStore extends EventEmitter {
   actualSum() {
     return _actualSum;
   }
+
+  diff() {
+    return _diff
+  }
 }
 
 function sumActual() {
@@ -37,6 +42,19 @@ function sumActual() {
       _actualSum += asset.y
     })
   }
+}
+
+function parseDiff() {
+
+  PROFILES[_desiredPortfolio].forEach((asset, idx) => {
+    // Calculate the target value and find the difference and percent difference with the actual value of the user's asset
+
+    let desiredVal = (asset.y / 100) * _actualSum,
+        actualVal = _actualPortfolio[idx].y,
+        percentDelta = ((desiredVal - actualVal) / actualVal) * 100;
+
+    _diff[asset.x] = [desiredVal - actualVal, percentDelta]
+  })
 }
 
 const resultStore = new ResultStore();
@@ -50,12 +68,14 @@ AppDispatcher.register((action) => {
     case ACTIONS.SUBMIT_ACTUAL:
       _actualPortfolio = action.portfolio
       sumActual()
+      parseDiff()
       resultStore.emit(CHANGE_EVENT);
       break;
     case ACTIONS.CLEAR_DATA:
       _desiredPortfolio = []
       _actualPortfolio = []
       _actualSum = 0
+      _diff = {}
       resultStore.emit(CHANGE_EVENT);
       break;
     default:

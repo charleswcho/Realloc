@@ -6,8 +6,6 @@ import AdjustPage from '../js/components/AdjustPage'
 import { ACTIONS } from '../js/constants/actionConstants'
 import { ADJUST } from '../js/constants/contentConstants'
 
-jest.dontMock('../js/stores/resultStore')
-
 describe('AdjustPage', () => {
   it('renders title', () => {
     const wrapper = shallow(<AdjustPage />);
