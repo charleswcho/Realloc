@@ -4,9 +4,17 @@ import AdjustPage from '../js/components/AdjustPage'
 
 // Constants
 import { ACTIONS } from '../js/constants/actionConstants'
+import { PROFILES } from '../js/constants/profileConstants'
 import { ADJUST } from '../js/constants/contentConstants'
 
+jest.mock('../js/dispatcher/dispatcher');
+
 describe('AdjustPage', () => {
+
+  let AppDispatcher;
+  let ResultStore;
+  let callback;
+
   it('renders title', () => {
     const wrapper = shallow(<AdjustPage />);
 
@@ -16,58 +24,49 @@ describe('AdjustPage', () => {
   });
 
   // mock actions inside dispatch payloads
-
   let submitDesired = {
-    source: 'VIEW_ACTION',
-    action: {
-      actionType: ACTIONS.SUBMIT_DESIRED,
-      text: 'foo'
-    }
+    actionType: ACTIONS.SUBMIT_DESIRED,
+    portfolio: PROFILES.Moderate
   };
   let submitActual = {
-    source: 'VIEW_ACTION',
-    action: {
-      actionType: ACTIONS.SUBMIT_ACTUAL,
-      id: 'replace me in test'
-    }
+    actionType: ACTIONS.SUBMIT_ACTUAL,
+    portfolio: PROFILES.Moderate
   };
 
-  let AppDispatcher;
-  let TodoStore;
-  let callback;
+  beforeEach(() => {
+     jest.resetModules();
+     AppDispatcher = require('../js/dispatcher/dispatcher').default;
+     ResultStore = require('../js/stores/resultStore').default;
+     callback = AppDispatcher.register.mock.calls[0][0];
+   });
 
-  beforeEach(function() {
-    AppDispatcher = require('../js/dispatcher/dispatcher');
-    console.log(AppDispatcher.register)
-    TodoStore = require('../js/stores/resultStore');
-    callback = AppDispatcher.register.mock.calls[0][0];
+   it('registers a callback with the dispatcher', function() {
+     expect(AppDispatcher.register.mock.calls.length).toBe(1);
+   });
+
+  it('initializes with no portfolios', function() {
+    let actual = ResultStore.actualPortfolio();
+
+    expect(actual).toEqual([]);
   });
 
-  it('registers a callback with the dispatcher', function() {
-    expect(AppDispatcher.register.mock.calls.length).toBe(1);
-  });
-  //
-  // it('initializes with no to-do items', function() {
-  //   var all = TodoStore.getAll();
-  //   expect(all).toEqual({});
-  // });
-  //
-  // it('creates a to-do item', function() {
-  //   callback(actionTodoCreate);
-  //   var all = TodoStore.getAll();
-  //   var keys = Object.keys(all);
-  //   expect(keys.length).toBe(1);
-  //   expect(all[keys[0]].text).toEqual('foo');
-  // });
-  //
-  // it('destroys a to-do item', function() {
-  //   callback(actionTodoCreate);
-  //   var all = TodoStore.getAll();
-  //   var keys = Object.keys(all);
-  //   expect(keys.length).toBe(1);
-  //   actionTodoDestroy.action.id = keys[0];
-  //   callback(actionTodoDestroy);
-  //   expect(all[keys[0]]).toBeUndefined();
-  // });
+  it('stores portfolios', function() {
+    callback(submitDesired);
+    callback(submitActual);
 
+    let desired = ResultStore.desiredPortfolio(),
+        actual = ResultStore.actualPortfolio();
+
+    expect(desired.length).toBe(5);
+    expect(actual.length).toBe(5);
+  });
+
+  it('calculates difference', function() {
+    callback(submitDesired);
+    callback(submitActual);
+
+    let diff = ResultStore.diff();
+
+    expect(diff['Developed Markets'][0]).toBe(0);
+  });
 })

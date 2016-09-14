@@ -5,7 +5,7 @@ import { EventEmitter } from 'events'
 
 const CHANGE_EVENT = 'change';
 
-let _desiredPortfolio = [],
+let _desiredPortfolio,
     _actualPortfolio = [],
     _actualSum = 0,
     _diff = {};
@@ -45,7 +45,6 @@ function sumActual() {
 }
 
 function parseDiff() {
-
   PROFILES[_desiredPortfolio].forEach((asset, idx) => {
     // Calculate the target value and find the difference and percent difference with the actual value of the user's asset
 
@@ -68,6 +67,7 @@ AppDispatcher.register((action) => {
     case ACTIONS.SUBMIT_ACTUAL:
       _actualPortfolio = action.portfolio
       sumActual()
+      // Parse data only after we have both portfolios and the sum of the actual
       parseDiff()
       resultStore.emit(CHANGE_EVENT);
       break;

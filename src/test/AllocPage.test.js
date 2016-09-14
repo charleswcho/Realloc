@@ -12,9 +12,8 @@ describe('AdjustPage', () => {
   });
 
   it('renders title', () => {
-    const wrapper = shallow(<AllocPage />);
-
-    const title = <h1>{ALLOC.title}</h1>;
+    const wrapper = shallow(<AllocPage />),
+          title = <h1>{ALLOC.title}</h1>;
 
     expect(wrapper.contains(title)).toEqual(true);
   });
