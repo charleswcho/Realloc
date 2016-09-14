@@ -6,6 +6,8 @@ import DonutChart from './DonutChart'
 import Paper from 'material-ui/Paper'
 // Actions
 import { submitActual } from '../actions/clientActions'
+// Constants
+import { ALLOC } from '../constants/contentConstants'
 
 export default class AllocPage extends Component {
   state = {
@@ -36,7 +38,7 @@ export default class AllocPage extends Component {
     return (
       <div className="alloc-page">
         <div className='intro'>
-          <h1>Enter your current Allocation of assets</h1></div>
+          <h1>{ALLOC.title}</h1></div>
 
         <div className='display'>
           <Paper className='chart' zDepth={3}>

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 // Components
 import DonutChart from './DonutChart'
 import Paper from 'material-ui/Paper'
+// Constants
+import { ADJUST } from '../constants/contentConstants'
 // Stores
 import ResultStore from '../stores/resultStore'
 
@@ -76,15 +78,14 @@ export default class AdjustPage extends Component {
   render() {
     return (
       <div className="adjust-page">
-        <div className='intro'>
-          <h1>See what you need to change to achieve your goal</h1></div>
+        <div className='intro'><h1>{ADJUST.title}</h1></div>
 
-        <Paper className='chart' zDepth={3}>Current Portfolio
+        <Paper className='chart' zDepth={3}>{ADJUST.actual}
           <DonutChart data={this.state.actualPortfolio}/></Paper>
 
         {this.renderDiff()}
 
-        <Paper className='chart' zDepth={3}>Target Portfolio
+        <Paper className='chart' zDepth={3}>{ADJUST.target}
           <DonutChart data={this.state.desiredPortfolio}/></Paper>
       </div>
     );

@@ -8,7 +8,7 @@ import Paper from 'material-ui/Paper'
 import { submitDesired } from '../actions/clientActions'
 // Constants
 import { PROFILES, PORTFOLIOS} from '../constants/profileConstants'
-
+import { BUTTON } from '../constants/contentConstants'
 
 export default class RiskPage extends Component {
   switchProfile() {
@@ -36,7 +36,7 @@ export default class RiskPage extends Component {
 
         <DonutChart data={PROFILES[profile]}/>
 
-        <Link className='continue' to={"/alloc"}>Continue</Link>
+        <Link className='continue' to={"/alloc"}>{BUTTON.name}</Link>
       </Paper>
     );
   }

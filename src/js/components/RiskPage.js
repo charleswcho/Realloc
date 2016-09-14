@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 import Slider from 'material-ui/Slider'
 import RiskProfile from './RiskProfile'
 
+// Constants
+import { RISK } from '../constants/contentConstants'
+
 export default class RiskPage extends Component {
   state = {
     riskVal: 5
