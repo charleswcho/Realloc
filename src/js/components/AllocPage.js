@@ -7,6 +7,7 @@ import Paper from 'material-ui/Paper'
 // Actions
 import { submitActual } from '../actions/clientActions'
 // Constants
+import  { STATE, ASSETS } from '../constants/profileConstants'
 import { ALLOC, BUTTON } from '../constants/contentConstants'
 
 // ASSUMPTION - Everyone has some money in every asset
@@ -15,12 +16,8 @@ import { ALLOC, BUTTON } from '../constants/contentConstants'
 // TODO: Need to add valications to inputs
 
 export default class AllocPage extends Component {
-  state = {
-    "Developed Markets": 5,
-    "Emerging Markets": 5,
-    "Municipal Bonds": 5,
-    "US Total Stock Market": 5,
-    "US Large-Cap Value": 5
+  componentWillMount() {
+    this.setState(STATE)
   }
 
   calcData = () => {
@@ -29,7 +26,7 @@ export default class AllocPage extends Component {
       .filter(asset => {
         let val = this.state[asset]
         return (val > 0 && !Number.isNaN(val) )})
-      .map(asset => { return { x: asset, y: this.state[asset], label: asset } })
+      .map(asset => { return { x: asset, y: this.state[asset] } })
   }
 
   _inputChanged = (e) => {
@@ -50,7 +47,7 @@ export default class AllocPage extends Component {
             <DonutChart data={this.calcData()}/></Paper>
 
           <ul className='inputs'>
-            {Object.keys(this.state).map((asset, idx) => {
+            {ASSETS.map((asset, idx) => {
               return (<AssetInput key={idx} name={asset}
                                   inputChanged={this._inputChanged}/>)
             })}

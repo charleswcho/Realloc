@@ -24,4 +24,14 @@ export const PROFILES = {
   ]
 }
 
-export const PORTFOLIOS = ['Conservative', 'Moderate', 'Aggressive']
+export const PORTFOLIOS = Object.keys(PROFILES)
+
+export const STATE = {
+  "Developed Markets": 5,
+  "Emerging Markets": 5,
+  "Municipal Bonds": 5,
+  "US Total Stock Market": 5,
+  "US Large-Cap Value": 5
+}
+
+export const ASSETS = Object.keys(STATE)
