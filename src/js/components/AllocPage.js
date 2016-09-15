@@ -11,8 +11,8 @@ import { ALLOC, BUTTON } from '../constants/contentConstants'
 
 // ASSUMPTION - Everyone has some money in every asset
 
+// TODO: Add handling for missing asset types
 // TODO: Need to add valications to inputs
-// TODO: Add handling for missing asset ty
 
 export default class AllocPage extends Component {
   state = {
