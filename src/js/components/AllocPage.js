@@ -7,7 +7,12 @@ import Paper from 'material-ui/Paper'
 // Actions
 import { submitActual } from '../actions/clientActions'
 // Constants
-import { ALLOC } from '../constants/contentConstants'
+import { ALLOC, BUTTON } from '../constants/contentConstants'
+
+// ASSUMPTION - Everyone has some money in every asset
+
+// TODO: Need to add valications to inputs
+// TODO: Add handling for missing asset ty
 
 export default class AllocPage extends Component {
   state = {
@@ -55,7 +60,7 @@ export default class AllocPage extends Component {
         <div className='buttons'>
           <Link className='back' to={"/"}>Back</Link>
           <Link className='continue' to={"/adjust"}
-                onClick={e => submitActual(this.calcData())}>Continue</Link>
+                onClick={e => submitActual(this.calcData())}>{BUTTON.name}</Link>
         </div>
       </div>
     );

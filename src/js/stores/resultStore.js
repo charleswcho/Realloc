@@ -1,24 +1,13 @@
 import AppDispatcher from '../dispatcher/dispatcher'
 import { ACTIONS } from '../constants/actionConstants'
 import { PROFILES } from '../constants/profileConstants'
-import { EventEmitter } from 'events'
-
-const CHANGE_EVENT = 'change';
 
 let _desiredPortfolio,
     _actualPortfolio = [],
     _actualSum = 0,
     _diff = {};
 
-class ResultStore extends EventEmitter {
-  addChangeListener(cb) {
-    this.on(CHANGE_EVENT, cb);
-  }
-
-  removeChangeListener(cb) {
-    this.removeListener(CHANGE_EVENT, cb);
-  }
-
+class ResultStore {
   desiredPortfolio() {
     return PROFILES[_desiredPortfolio];
   }
@@ -33,14 +22,6 @@ class ResultStore extends EventEmitter {
 
   diff() {
     return _diff
-  }
-}
-
-function sumActual() {
-  if (_actualSum === 0) { // Only sum if not calculated before
-    _actualPortfolio.forEach((asset) => {
-      _actualSum += asset.y
-    })
   }
 }
 
@@ -62,21 +43,18 @@ AppDispatcher.register((action) => {
   switch(action.actionType) {
     case ACTIONS.SUBMIT_DESIRED:
       _desiredPortfolio = action.portfolio
-      resultStore.emit(CHANGE_EVENT);
       break;
     case ACTIONS.SUBMIT_ACTUAL:
       _actualPortfolio = action.portfolio
-      sumActual()
+      _actualPortfolio.forEach(asset => _actualSum += asset.y) // Sum value of actual Portfo
       // Parse data only after we have both portfolios and the sum of the actual
       parseDiff()
-      resultStore.emit(CHANGE_EVENT);
       break;
     case ACTIONS.CLEAR_DATA:
       _desiredPortfolio = []
       _actualPortfolio = []
       _actualSum = 0
       _diff = {}
-      resultStore.emit(CHANGE_EVENT);
       break;
     default:
       return;

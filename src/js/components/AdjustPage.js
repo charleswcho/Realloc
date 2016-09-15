@@ -14,40 +14,22 @@ export default class AdjustPage extends Component {
     diff: ResultStore.diff()
   }
 
-  componentDidMount() {
-    ResultStore.addChangeListener(this._resultsChanged);
-  }
-
-  componentWillUnmount()  {
-    ResultStore.removeChangeListener(this._resultsChanged);
-  }
-
   renderDiff() {
     let diff = this.state.diff,
         val;
 
     return (
       <ul className='diffs'>
-        {
-          Object.keys(diff).map((asset, idx) => {
-            val = diff[asset];
-            return (
-              <li key={idx}>
-                <span>{asset + ' '}</span>
-                <span className={(val[0] < 0) ? 'negative' : 'positive'}>
-                  {val[1].toFixed(2) + '% | $ ' + val[0].toFixed(2)}</span></li>)
-          })
-        }
+        {Object.keys(diff).map((asset, idx) => {
+          val = diff[asset];
+          return (
+            <li key={idx}>
+              <span>{asset + ' '}</span>
+              <span className={(val[0] < 0) ? 'negative' : 'positive'}>
+                {val[1].toFixed(2) + '% | $ ' + val[0].toFixed(2)}</span></li>)
+        })}
       </ul>
     )
-  }
-
-  _resultsChanged = () => {
-    this.setState({
-      desiredPortfolio: ResultStore.desiredPortfolio(),
-      actualPortfolio: ResultStore.actualPortfolio(),
-      diff: ResultStore.diff()
-    })
   }
 
   render() {
