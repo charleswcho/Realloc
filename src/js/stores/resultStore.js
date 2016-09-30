@@ -4,6 +4,7 @@ import { PROFILES } from '../constants/profileConstants'
 
 let _desiredPortfolio,
     _actualPortfolio = [],
+    _diffPortfolio = [],
     _actualSum = 0,
     _diff = {};
 
@@ -28,10 +29,10 @@ class ResultStore {
 function parseDiff() {
   PROFILES[_desiredPortfolio].forEach((asset, idx) => {
     // Calculate the target value and find the difference and percent difference with the actual value of the user's asset
-
+    debugger
     let desiredVal = (asset.y / 100) * _actualSum,
-        actualVal = _actualPortfolio[idx].y,
-        percentDelta = ((desiredVal - actualVal) / actualVal) * 100;
+        actualVal = _diffPortfolio[idx].y,
+        percentDelta = ((desiredVal - actualVal) / desiredVal) * 100;
 
     _diff[asset.x] = [desiredVal - actualVal, percentDelta]
   })
@@ -49,6 +50,10 @@ AppDispatcher.register((action) => {
       _actualPortfolio.forEach(asset => _actualSum += asset.y) // Sum value of actual Portfo
       // Parse data only after we have both portfolios and the sum of the actual
       parseDiff()
+      break;
+    case ACTIONS.SUBMIT_DIFF:
+      _diffPortfolio = action.portfolio
+      console.log(_diffPortfolio)
       break;
     case ACTIONS.CLEAR_DATA:
       _desiredPortfolio = []

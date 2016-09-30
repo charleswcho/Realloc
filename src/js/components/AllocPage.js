@@ -5,7 +5,7 @@ import AssetInput from './AssetInput'
 import DonutChart from './DonutChart'
 import Paper from 'material-ui/Paper'
 // Actions
-import { submitActual } from '../actions/clientActions'
+import { submitActual, submitDiffActual } from '../actions/clientActions'
 // Constants
 import  { STATE, ASSETS } from '../constants/profileConstants'
 import { ALLOC, BUTTON } from '../constants/contentConstants'
@@ -26,7 +26,21 @@ export default class AllocPage extends Component {
       .filter(asset => {
         let val = this.state[asset]
         return (val > 0 && !Number.isNaN(val) )})
-      .map(asset => { return { x: asset, y: this.state[asset] } })
+      .map(asset => { return { x: asset, y: this.state[asset], label: asset } })
+  }
+
+  _handleSubmit = (e) => {
+    let stateCopy = Object.assign(this.state, {})
+
+    submitDiffActual(
+      Object.keys(stateCopy).map(asset => {
+        if (Number.isNaN(stateCopy[asset])) {
+          stateCopy[asset] = 0
+        }
+        return { x: asset, y: stateCopy[asset], label: asset }
+      })
+    )
+    submitActual(this.calcData())
   }
 
   _inputChanged = (e) => {
@@ -57,7 +71,7 @@ export default class AllocPage extends Component {
         <div className='buttons'>
           <Link className='back' to={"/"}>Back</Link>
           <Link className='continue' to={"/adjust"}
-                onClick={e => submitActual(this.calcData())}>{BUTTON.name}</Link>
+                onClick={this._handleSubmit}>{BUTTON.name}</Link>
         </div>
       </div>
     );

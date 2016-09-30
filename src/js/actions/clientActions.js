@@ -9,10 +9,19 @@ export function submitDesired(portfolio) {
 }
 
 export function submitActual(portfolio) {
+  console.log('submit Actual dispatched')
   AppDispatcher.dispatch({
     actionType: ACTIONS.SUBMIT_ACTUAL,
     portfolio: portfolio
   });
+}
+
+export function submitDiffActual(portfolio) {
+  console.log('diff dispatched')
+  AppDispatcher.dispatch({
+    actionType: ACTIONS.SUBMIT_DIFF,
+    portfolio: portfolio
+  })
 }
 
 export function clearData() {
