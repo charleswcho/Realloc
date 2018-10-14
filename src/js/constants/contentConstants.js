@@ -1,10 +1,10 @@
 export const RISK = {
   title: 'Start by selecting a risk profile',
-  sub: "Don't worry, you call always come back and change it"
+  sub: "Don't worry, you can always come back and change it"
 }
 
 export const ALLOC = {
-  title: 'Enter your current Allocation of assets'
+  title: 'Enter your current allocation of assets'
 }
 
 export const ADJUST = {
