@@ -2,7 +2,7 @@
   "name": "realloc",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://charleswcho.github.io/realloc/",
+  "homepage": "https://charleswcho.github.io/Realloc/",
   "devDependencies": {
     "enzyme": "^2.9.1",
     "jest": "^15.1.1",
