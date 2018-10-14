@@ -2,7 +2,7 @@
 
 Reallocate your portfolio based on your desired risk profile.
 
-[Live site](https://realloc.herokuapp.com/#/?_k=2yjq9c)
+[Live site](https://charleswcho.github.io/Realloc/)
 
 ![Risk Page](assets/RiskPage.png)
 
