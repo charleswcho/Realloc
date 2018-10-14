@@ -22,19 +22,18 @@ $desktop-width: 1024px
 .adjust-page
   height: calc(100% - 66px)
   width: 90%
-  padding: 0 5%
+  padding: 0 5% 5% 5%
   +flex(column)
   .diffs
-    height: 150px
     padding: 20px 0
-    +tablet
-      width: 350px
-    +desktop
-      width: 450px
-    li
+    li h3
+      margin-bottom: 5px
+    .metrics
       padding: 5px 0
       +flex(row)
       justify-content: space-between
+      .metric
+        margin: 0 10px
       .negative
         color: red
       .positive

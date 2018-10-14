@@ -1,27 +1,18 @@
 import AppDispatcher from '../dispatcher/dispatcher'
 import { ACTIONS } from '../constants/actionConstants'
 
-export function submitDesired(portfolio) {
+export function submitDesiredPortfolio(portfolio) {
   AppDispatcher.dispatch({
-    actionType: ACTIONS.SUBMIT_DESIRED,
+    actionType: ACTIONS.SUBMIT_DESIRED_PORTFOLIO,
     portfolio: portfolio
   });
 }
 
-export function submitActual(portfolio) {
-  console.log('submit Actual dispatched')
+export function submitActualPortfolio(portfolio) {
   AppDispatcher.dispatch({
-    actionType: ACTIONS.SUBMIT_ACTUAL,
+    actionType: ACTIONS.SUBMIT_ACTUAL_PORTFOLIO,
     portfolio: portfolio
   });
-}
-
-export function submitDiffActual(portfolio) {
-  console.log('diff dispatched')
-  AppDispatcher.dispatch({
-    actionType: ACTIONS.SUBMIT_DIFF,
-    portfolio: portfolio
-  })
 }
 
 export function clearData() {

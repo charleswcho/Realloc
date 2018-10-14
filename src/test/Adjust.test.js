@@ -24,12 +24,12 @@ describe('AdjustPage', () => {
   });
 
   // mock actions inside dispatch payloads
-  let submitDesired = {
-    actionType: ACTIONS.SUBMIT_DESIRED,
+  let submitDesiredPortfolio = {
+    actionType: ACTIONS.SUBMIT_DESIRED_PORTFOLIO,
     portfolio: PROFILES.Moderate
   };
-  let submitActual = {
-    actionType: ACTIONS.SUBMIT_ACTUAL,
+  let submitActualPortfolio = {
+    actionType: ACTIONS.SUBMIT_ACTUAL_PORTFOLIO,
     portfolio: PROFILES.Moderate
   };
 
@@ -51,8 +51,8 @@ describe('AdjustPage', () => {
   });
 
   it('stores portfolios', function() {
-    callback(submitDesired);
-    callback(submitActual);
+    callback(submitDesiredPortfolio);
+    callback(submitActualPortfolio);
 
     let desired = ResultStore.desiredPortfolio(),
         actual = ResultStore.actualPortfolio();
@@ -62,8 +62,8 @@ describe('AdjustPage', () => {
   });
 
   it('calculates difference', function() {
-    callback(submitDesired);
-    callback(submitActual);
+    callback(submitDesiredPortfolio);
+    callback(submitActualPortfolio);
 
     let diff = ResultStore.diff();
 
